@@ -170,7 +170,7 @@ li {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 80%;
+  min-height: 70%;
 }
 .clean-response-container {
   display: flex;
