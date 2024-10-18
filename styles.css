@@ -1,3 +1,16 @@
+:root {
+  --background-color: #0d0d0d; /* Fondo principal (negro suave) */
+  --surface-color: #1a1a1a; /* Superficies ligeramente más claras */
+  --primary-color: #3d3d3d; /* Color primario (gris oscuro) */
+  --secondary-color: #4b4b4b; /* Color secundario (gris medio) */
+  --text-color: #e0e0e0; /* Texto claro sobre el fondo oscuro */
+  --muted-text-color: #a0a0a0; /* Texto sutil (gris suave) */
+  --border-color: #2e2e2e; /* Bordes oscuros */
+  --error-color: #b33a3a; /* Color de error (rojo apagado) */
+  --accent-color: #2a2a2a; /* Acentos (para hover o detalles) */
+  --shadow-color: rgba(0, 0, 0, 0.6); /* Sombra suave */
+}
+
 /* General styles */
 * {
   margin: 0;
@@ -9,18 +22,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--background-color);
 }
 li {
   list-style: none;
 }
 .icon-s {
   font-size: 25px;
+  color: var(--text-color);
 }
 .icon-m {
   font-size: 40px;
+  color: var(--text-color);
 }
 .icon-xl {
   font-size: 50px;
+  color: var(--text-color);
 }
 .hide {
   display: none;
@@ -34,13 +51,17 @@ li {
 .nav-bar {
   position: fixed;
   top: 0;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
   width: 100%;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
+  border-radius: 20px;
+  /* Efecto glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -50,6 +71,7 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: invert();
 }
 .logo-png {
   height: 50px;
@@ -59,6 +81,9 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#btn-menu:hover {
+  cursor: pointer;
 }
 .container-submenu {
   display: flex;
@@ -71,9 +96,8 @@ li {
   padding: 8px;
   position: absolute;
   top: 80px;
-  right: 50px;
-  background-color: #eee;
-  border: 1px solid #dadada;
+  right: 20px;
+  background-color: var(--primary-color);
 }
 .list-menu {
   display: flex;
@@ -82,7 +106,7 @@ li {
 }
 .menu-item {
   font-size: 17px;
-  background-color: #dadada;
+  background-color: var(--accent-color);
   width: 100%;
   height: 50px;
   display: flex;
@@ -91,65 +115,86 @@ li {
   padding: 10px;
   gap: 10px;
   font-weight: 600;
-}
-/* .menu-item-spc {
-  width: 100%;
+  color: var(--text-color);
 }
 .menu-item:hover {
-  background-color: #cfcfcf;
-  color: #333;
+  background-color: var(--secondary-color);
   cursor: pointer;
 }
-.container-terms-privacity {
+.menu-item-spc {
   display: flex;
+  width: 100%;
+}
+.container-terms-privacy {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0px 10px;
 }
 .info {
   display: flex;
-  gap: 5px;
-  align-self: flex-end;
-  margin-bottom: 5px;
+  gap: 15px;
+  align-self: center;
 }
-
 .terminos,
 .privacidad {
-  color: #777;
+  font-size: 15px;
+  color: var(--text-color);
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
 }
 .terminos:hover,
 .privacidad:hover {
   text-decoration: underline;
 }
-
-.github,
-.linkedin {
-  color: black;
+.github > i:hover,
+.linkedin > i:hover {
+  color: var(--muted-text-color);
 }
-.github:hover,
-.linkedin:hover {
-  color: #777;
-} */
 /* Chatbox styles */
 .chatbox-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
-  background-color: #eee;
+  background-color: var(--accent-color);
   border-radius: 40px 40px 0 0;
-  padding: 20px 30px 30px 30px;
   align-items: center;
   margin-top: 80px;
+  max-height: 80%;
+  min-width: 100%;
 }
-
 .response-area {
   width: 100%;
   border-radius: 5px;
-  padding: 10px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 80%;
+}
+.clean-response-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+}
+.logo-clean-response {
+  height: 100px;
+  filter: invert();
+}
+.title-clean-response {
+  font-family: "Open Sans", Arial, sans-serif;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 40px;
+}
+.text-clean-response {
+  font-family: "Open Sans", Arial, sans-serif;
+  text-align: center;
+  color: var(--muted-text-color);
+  font-size: 16px;
 }
 .ask-box {
   display: flex;
@@ -157,38 +202,39 @@ li {
   gap: 10px;
   padding: 20px;
   border-radius: 15px;
-  background-color: #dadada;
+  background-color: var(--secondary-color);
   align-self: flex-end;
   max-width: 80%;
+  color: var(--text-color);
 }
 
 .ask-text-p {
   font-size: 16px;
 }
-
 .response-box {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 20px;
   border-radius: 15px;
-  background-color: #dadada;
+  background-color: var(--accent-color);
   max-width: 80%;
+  max-height: 80%;
+  color: var(--text-color);
 }
-
 .response-text-p {
   font-size: 16px;
 }
 /* Prompt area styles */
 .container-input-area {
   width: 100%;
-  background-color: #ddd;
+  background-color: var(--border-color);
   position: sticky;
-  bottom: 30px;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 20px;
+  padding: 30px 10px 30px 10px;
 }
 .container-input-area {
   background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
@@ -201,7 +247,7 @@ li {
 .input-area {
   width: 90%;
   display: flex;
-  background-color: #ccc;
+  background-color: var(--primary-color);
   border-radius: 20px;
   padding: 5px 10px;
 }
@@ -209,11 +255,17 @@ li {
   flex: 1;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border: none;
   background: transparent;
   outline: none;
   font-size: 15px;
+  color: var(--text-color);
+}
+.user-input:focus {
+  .input-area {
+    border: 2px solid var(--muted-text-color);
+  }
 }
 .send-btn {
   width: 40px;
@@ -224,13 +276,24 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 100ms ease-in-out;
 }
-
+.send-btn:hover {
+  cursor: pointer;
+  background-color: var(--muted-text-color);
+}
+/* Media queries */
 @media screen and (max-width: 700px) {
   .ask-box {
     max-width: 90%;
   }
   .response-box {
     max-width: 90%;
+  }
+  .container-input-area {
+    padding: 10px 10px 10px 10px;
+  }
+  .response-area {
+    padding: 10px;
   }
 }

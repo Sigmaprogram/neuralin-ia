@@ -31,7 +31,6 @@
     <!-- Título -->
     <title>Neuralin IA</title>
   </head>
-
   <body>
     <header class="cabecera">
       <nav class="nav-bar">
@@ -51,7 +50,10 @@
               <li class="menu-item">
                 <i class="bx bxs-book icon-s"></i>Ayuda y Documentación
               </li>
-              <!-- <li class="menu-item-spc">
+              <li class="menu-item">
+                <i class="bx bx-git-pull-request"></i>API Request
+              </li>
+              <li class="menu-item-spc">
                 <div class="container-terms-privacy">
                   <div class="info">
                     <a href="#" class="terminos">Terms</a>
@@ -66,7 +68,7 @@
                     ></a>
                   </div>
                 </div>
-              </li> -->
+              </li>
             </ul>
           </div>
         </div>
@@ -76,36 +78,27 @@
     <main class="APP">
       <section class="chatbox-container">
         <div id="response-area" class="response-area">
-          <!-- Caja de pregunta -->
-          <div class="ask-box">
-            <div class="ask-text">
-              <p class="ask-text-p">
-                ¡Hola! ¿En qué puedo ayudarte? Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Eveniet nesciunt dicta numquam
-                distinctio tenetur, commodi voluptas atque dolorem consequuntur.
-                Nesciunt ratione aut eligendi repellendus et, illum ad
-                temporibus perferendis vitae.
-              </p>
-            </div>
+          <div class="clean-response-container">
+            <img
+              class="logo-clean-response"
+              src="assets/icons/cerebro.png"
+              alt=""
+            />
+            <h1 class="title-clean-response">Bienvenido a Neuralin</h1>
+            <p class="text-clean-response">
+              Escriba una pregunta y Neuralin te responderá.
+            </p>
           </div>
-          <!-- Fin de caja de pregunta -->
-
-          <!-- Caja de respuesta -->
-          <div class="response-box">
-            <h4 class="response-title">Neuralin</h4>
-            <div class="response-text">
-              <p class="response-text-p">¡Hola! ¿En qué te puedo ayudar?</p>
-            </div>
-          </div>
-          <!-- Fin de caja de respuesta -->
+          <!-- Aqui se colocan las respuestas y preguntas -->
         </div>
         <div class="container-input-area">
           <div class="input-area">
             <input
+              autocomplete="off"
               type="text"
               id="user-input"
               class="user-input"
-              placeholder="Escribe tu pregunta..."
+              placeholder="Pregunta a Neuralin"
             />
             <button class="send-btn" id="send-btn">
               <i class="bx bx-up-arrow-alt"></i>
