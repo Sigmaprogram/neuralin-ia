@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/cerebro.png" type="image/x-icon" />
+
+    <!-- Iconos -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Título -->
+    <title>Neuralin IA</title>
+  </head>
+
+  <body>
+    <header class="cabecera">
+      <nav class="nav-bar">
+        <h1 class="logo">
+          <span
+            ><img
+              src="assets/icons/cerebro.png"
+              alt="Logo Neuralin"
+              class="logo-png"
+          /></span>
+          Neuralin
+        </h1>
+        <div class="container-submenu">
+          <i id="btn-menu" class="bx bx-menu icon-m"></i>
+          <div class="hide submenu">
+            <ul class="list-menu">
+              <li class="menu-item">
+                <i class="bx bxs-book icon-s"></i>Ayuda y Documentación
+              </li>
+              <!-- <li class="menu-item-spc">
+                <div class="container-terms-privacy">
+                  <div class="info">
+                    <a href="#" class="terminos">Terms</a>
+                    <a href="#" class="privacidad">Privacy</a>
+                  </div>
+                  <div class="icons">
+                    <a href="#" class="github"
+                      ><i class="bx bxl-github icon-m"></i
+                    ></a>
+                    <a href="#" class="linkedin"
+                      ><i class="bx bxl-linkedin icon-m"></i
+                    ></a>
+                  </div>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="APP">
+      <section class="chatbox-container">
+        <div id="response-area" class="response-area">
+          <!-- Caja de pregunta -->
+          <div class="ask-box">
+            <div class="ask-text">
+              <p class="ask-text-p">
+                ¡Hola! ¿En qué puedo ayudarte? Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Eveniet nesciunt dicta numquam
+                distinctio tenetur, commodi voluptas atque dolorem consequuntur.
+                Nesciunt ratione aut eligendi repellendus et, illum ad
+                temporibus perferendis vitae.
+              </p>
+            </div>
+          </div>
+          <!-- Fin de caja de pregunta -->
+
+          <!-- Caja de respuesta -->
+          <div class="response-box">
+            <h4 class="response-title">Neuralin</h4>
+            <div class="response-text">
+              <p class="response-text-p">¡Hola! ¿En qué te puedo ayudar?</p>
+            </div>
+          </div>
+          <!-- Fin de caja de respuesta -->
+        </div>
+        <div class="container-input-area">
+          <div class="input-area">
+            <input
+              type="text"
+              id="user-input"
+              class="user-input"
+              placeholder="Escribe tu pregunta..."
+            />
+            <button class="send-btn" id="send-btn">
+              <i class="bx bx-up-arrow-alt"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>

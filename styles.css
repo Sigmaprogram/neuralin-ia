@@ -1,0 +1,236 @@
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+li {
+  list-style: none;
+}
+.icon-s {
+  font-size: 25px;
+}
+.icon-m {
+  font-size: 40px;
+}
+.icon-xl {
+  font-size: 50px;
+}
+.hide {
+  display: none;
+}
+/* APP styles */
+.APP {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+}
+.nav-bar {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.logo {
+  font-family: "Merriweather", arial;
+  font-weight: 700;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-png {
+  height: 50px;
+}
+.logo > span {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-submenu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.submenu {
+  width: 340px;
+  border-radius: 20px;
+  padding: 8px;
+  position: absolute;
+  top: 80px;
+  right: 50px;
+  background-color: #eee;
+  border: 1px solid #dadada;
+}
+.list-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.menu-item {
+  font-size: 17px;
+  background-color: #dadada;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 13px;
+  padding: 10px;
+  gap: 10px;
+  font-weight: 600;
+}
+/* .menu-item-spc {
+  width: 100%;
+}
+.menu-item:hover {
+  background-color: #cfcfcf;
+  color: #333;
+  cursor: pointer;
+}
+.container-terms-privacity {
+  display: flex;
+}
+.info {
+  display: flex;
+  gap: 5px;
+  align-self: flex-end;
+  margin-bottom: 5px;
+}
+
+.terminos,
+.privacidad {
+  color: #777;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.terminos:hover,
+.privacidad:hover {
+  text-decoration: underline;
+}
+
+.github,
+.linkedin {
+  color: black;
+}
+.github:hover,
+.linkedin:hover {
+  color: #777;
+} */
+/* Chatbox styles */
+.chatbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #eee;
+  border-radius: 40px 40px 0 0;
+  padding: 20px 30px 30px 30px;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.response-area {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ask-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #dadada;
+  align-self: flex-end;
+  max-width: 80%;
+}
+
+.ask-text-p {
+  font-size: 16px;
+}
+
+.response-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #dadada;
+  max-width: 80%;
+}
+
+.response-text-p {
+  font-size: 16px;
+}
+/* Prompt area styles */
+.container-input-area {
+  width: 100%;
+  background-color: #ddd;
+  position: sticky;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+.container-input-area {
+  background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
+  -webkit-backdrop-filter: blur(20px); /* Desenfoque en navegadores webkit */
+  backdrop-filter: blur(20px); /* Desenfoque general */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde claro para mejorar el efecto glass */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras suaves para dar profundidad */
+}
+.input-area {
+  width: 90%;
+  display: flex;
+  background-color: #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+.user-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+}
+.send-btn {
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 360px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 700px) {
+  .ask-box {
+    max-width: 90%;
+  }
+  .response-box {
+    max-width: 90%;
+  }
+}
