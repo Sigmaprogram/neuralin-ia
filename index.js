@@ -2,6 +2,7 @@
 const btnMenu = document.getElementById("btn-menu");
 const submenu = document.querySelector(".submenu");
 const body = document.querySelector("body");
+
 btnMenu.addEventListener("click", () => {
   submenu.classList.toggle("hide");
 });
@@ -12,67 +13,67 @@ body.addEventListener("click", (event) => {
   }
 });
 
+// ================
 // Api request
-document.getElementById("send-btn").addEventListener("click", function () {
-  const userInput = document.getElementById("user-input").value;
-  if (userInput == "") return;
-
-  const responseArea = document.getElementById("response-area");
-
-  // Mostrar la pregunta del usuario
-  const userMessage = document.createElement("div");
-  userMessage.textContent = "Usuario: " + userInput;
-  userMessage.style.color = "#000";
-  responseArea.appendChild(userMessage);
-
-  // Simular respuesta de la IA (aquí puedes conectar tu lógica IA real)
-  const iaResponse = document.createElement("div");
-  iaResponse.textContent = "IA: " + generarRespuesta(userInput);
-  iaResponse.style.color = "#007bff";
-  responseArea.appendChild(iaResponse);
-
-  // Limpiar el input
-  document.getElementById("user-input").value = "";
-
-  // Hacer scroll automático al final
-  responseArea.scrollTop = responseArea.scrollHeight;
-});
-
-function generarRespuesta(input) {
-  // Aquí puede ir la lógica de tu IA (de momento una respuesta simulada)
-  return "Esta es una respuesta simulada para: " + input;
-}
-
 const apiKey = "AIzaSyCEhUUxSViWyF0j4RiCAEvuAd51UzGde4k";
 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-// El cuerpo de la solicitud, como en el curl original
-const requestBody = {
-  contents: [
-    {
-      parts: [
-        {
-          text: "Generame 5 ideas de negocios para un ingeniero en sistemas",
-        },
-      ],
-    },
-  ],
-};
+document
+  .getElementById("send-btn")
+  .addEventListener("click", async function () {
+    const userInputElement = document.getElementById("user-input");
+    if (userInputElement.value !== "") {
+      const input = userInputElement.value;
+      userInputElement.value = ""; // Limpiar el campo de texto
 
-// Petición fetch
-fetch(url, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(requestBody),
-})
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    console.log("Respuesta de la IA:", data);
-  })
-  .catch((error) => {
-    console.error("Hubo un error:", error);
+      // Esperar el resultado de la función async
+      try {
+        const respuesta = await generarRespuesta(input);
+        // ocultar clean-response-container
+        const cleanResponseContainer = document.querySelector(
+          ".clean-response-container"
+        );
+        cleanResponseContainer.style.display = "none";
+
+        // mostrar response-area
+        const responseContainer = document.getElementById("response-area");
+      } catch (error) {
+        console.error("Error al generar respuesta:", error);
+      }
+    }
   });
+
+// Funcion para generar respuesta (Petición a la API)
+async function generarRespuesta(input) {
+  const requestBody = {
+    contents: [
+      {
+        parts: [
+          {
+            text: `${input}`,
+          },
+        ],
+      },
+    ],
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data; // Devolver los datos de la API
+  } catch (error) {
+    console.error("Hubo un error en la solicitud:", error);
+    throw error; // Propagar el error para manejarlo donde se llame la función
+  }
+}
