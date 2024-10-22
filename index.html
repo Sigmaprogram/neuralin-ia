@@ -12,7 +12,7 @@
 
     <!-- Iconos -->
     <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
       rel="stylesheet"
     />
 
@@ -31,85 +31,77 @@
     <!-- Título -->
     <title>Neuralin IA</title>
   </head>
-  <body class="body">
-    <header class="cabecera">
-      <nav class="nav-bar">
-        <h1 class="logo">
-          <span
-            ><img
-              src="assets/icons/cerebro.png"
-              alt="Logo Neuralin"
-              class="logo-png"
-          /></span>
-          Neuralin
-        </h1>
-        <div class="container-submenu">
-          <i id="btn-menu" class="bx bx-menu icon-m"></i>
-          <div class="hide submenu">
-            <ul class="list-menu">
-              <li class="menu-item">
-                <i class="bx bxs-book icon-s"></i>Ayuda y Documentación
-              </li>
-              <li class="menu-item">
-                <i class="bx bx-git-pull-request"></i>API Request
-              </li>
-              <li class="menu-item-spc">
-                <div class="container-terms-privacy">
-                  <div class="info">
-                    <a href="#" class="terminos">Terms</a>
-                    <a href="#" class="privacidad">Privacy</a>
-                  </div>
-                  <div class="icons">
-                    <a href="#" class="github"
-                      ><i class="bx bxl-github icon-m"></i
-                    ></a>
-                    <a href="#" class="linkedin"
-                      ><i class="bx bxl-linkedin icon-m"></i
-                    ></a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
 
-    <main class="APP">
-      <section class="chatbox-container">
-        <div id="response-area" class="response-area">
-          <div class="clean-response-container">
-            <div class="logo-container">
+  <body class="body">
+    <nav class="nav-bar">
+      <section class="logo-section">
+        <img src="assets/icons/cerebro.png" alt="" />
+        <h1 class="title">Neuralin</h1>
+      </section>
+      <section class="iteractive-section">
+        <button class=""></button>
+        <button class="btn-iniciar-sesion">Sign in</button>
+      </section>
+    </nav>
+    <section class="sidebar">
+      <button class="btn-home menu-item"><i class="fas fa-home"> </i></button>
+      <button class="btn-user menu-item"><i class="fas fa-user"> </i></button>
+      <button class="btn-mensage menu-item">
+        <i class="fas fa-envelope"> </i>
+      </button>
+      <button class="btn-configuracion menu-item">
+        <i class="fas fa-cog"> </i>
+      </button>
+      <button class="btn-salir menu-item">
+        <i class="fas fa-sign-out-alt"> </i>
+      </button>
+    </section>
+    <!-- Contenedor del ChatBox -->
+    <section class="container-chatbox">
+      <!-- Seccion de respuestas de IA -->
+      <section class="section-response" id="section-response">
+        <h3 class="chatbox-title">ASK Neuralin</h3>
+        <!-- <div class="ask">
+          <section class="section-title-ask">
+            <div class="circle-image-ask">
               <img
-                class="logo-clean-response"
-                src="assets/icons/cerebro.png"
-                alt="logo Neuralin"
+                class="image-ask image-chatbox"
+                src="assets/img/imagepeople.jpeg"
+                alt="User profile picture"
               />
             </div>
-            <h1 class="title-clean-response">Bienvenido a Neuralin</h1>
-            <p class="text-clean-response">
-              Escriba una pregunta y Neuralin te responderá.
-            </p>
-          </div>
-          <!-- Aqui se colocan las respuestas y preguntas -->
+            <h3 class="title-ask">Usuario Demo</h3>
+          </section>
+          <p class="text-ask">Hola, como estas?</p>
         </div>
-        <div class="container-input-area">
-          <div class="input-area">
-            <input
-              autocomplete="off"
-              type="text"
-              id="user-input"
-              class="user-input"
-              placeholder="Pregunta a Neuralin"
-            />
-            <button class="send-btn" id="send-btn">
-              <i class="bx bx-up-arrow-alt"></i>
-            </button>
-          </div>
+        <div class="response">
+          <section class="section-title-response">
+            <div class="circle-image-response">
+              <img
+                class="image-response image-chatbox"
+                src="assets/icons/cerebro.png"
+                alt="User profile picture"
+              />
+            </div>
+            <h3 class="title-ask">Usuario Demo</h3>
+          </section>
+          <p class="text-response">Hola, ¿en que te podemos ayudar?</p>
         </div>
-      </section>
-    </main>
-
+      </section> -->
+      <!-- Fin seccion de respuestas de IA -->
+    </section>
+    <div class="input-container">
+      <input
+        autocomplete="off"
+        id="input-user"
+        placeholder="Text goes here to ask questions"
+        type="text"
+      />
+      <button id="send-btn" class="send-button">
+        <i class="fas fa-paper-plane"> </i>
+      </button>
+    </div>
+    <!-- Fin del contenedor del ChatBox -->
     <script src="index.js"></script>
   </body>
 </html>

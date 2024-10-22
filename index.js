@@ -1,62 +1,55 @@
-// Layout
-const btnMenu = document.getElementById("btn-menu");
-const submenu = document.querySelector(".submenu");
-const body = document.querySelector("body");
-
-btnMenu.addEventListener("click", () => {
-  submenu.classList.toggle("hide");
-});
-
-body.addEventListener("click", (event) => {
-  if (event.target !== btnMenu) {
-    submenu.classList.add("hide");
-  }
-});
+// LAYOUT
+// ================
+const circleButton = document.querySelector(".circle-button");
+const chatboxTitle = document.querySelector(".chatbox-title");
 
 // ================
-// Api request
+// API REQUEST
+// ================
 const apiKey = "AIzaSyCEhUUxSViWyF0j4RiCAEvuAd51UzGde4k";
 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-const responseContainer = document.getElementById("response-area");
+const responseContainer = document.getElementById("section-response");
 
 document
   .getElementById("send-btn")
   .addEventListener("click", async function () {
-    const userInputElement = document.getElementById("user-input");
+    const userInputElement = document.getElementById("input-user");
     if (userInputElement.value !== "") {
       // ocultar clean-response-container
-      const cleanResponseContainer = document.querySelector(
-        ".clean-response-container"
-      );
-      cleanResponseContainer.style.display = "none";
+      const chatboxTitle = document.querySelector(".chatbox-title");
+      chatboxTitle.classList.add("hiden");
+      // Obtener el valor del campo de texto
       const input = userInputElement.value;
       userInputElement.value = ""; // Limpiar el campo de texto
       // Mostrar caja de pregunta
-      responseContainer.innerHTML += `
-      <div class="ask-box">
-        <div class="ask-text">
-          <p class="ask-text-p">
-            ${input}
-          </p>
-        </div>
-      </div>
-      <!-- Fin de caja de pregunta -->
-    `;
-
-      // Esperar el resultado de la función async
+      responseContainer.innerHTML += `<div class="ask">
+<section class="section-title-ask">
+  <div class="circle-image-ask">
+    <img
+      class="image-ask image-chatbox"
+      src="assets/img/imagepeople.jpeg"
+      alt="User profile picture"
+    />
+  </div>
+  <h3 class="title-ask">Usuario Demo</h3>
+</section>
+<p class="text-ask">${input}</p>
+</div>`;
       try {
         const respuesta = await generarRespuesta(input);
-        // mostrar response-area
-        responseContainer.innerHTML += `
-          <!-- Caja de respuesta -->
-          <div class="response-box">
-            <h4 class="response-title">Neuralin</h4>
-            <div class="response-text">
-              <p class="response-text-p">${respuesta.candidates[0].content.parts[0].text}</p>
-            </div>
-          </div>
-          <!-- Fin de caja de respuesta -->
-        `;
+        responseContainer.innerHTML += `<div class="response">
+<section class="section-title-response">
+  <div class="circle-image-response">
+    <img
+      class="image-response image-chatbox"
+      src="assets/icons/cerebro.png"
+      alt="User profile picture"
+    />
+  </div>
+  <h3 class="title-ask">Usuario Demo</h3>
+</section>
+<p class="text-response">${respuesta.candidates[0].content.parts[0].text}</p>
+</div>`;
         responseArea.scrollTop = responseArea.scrollHeight;
       } catch (error) {
         console.error("Error al generar respuesta:", error);
@@ -92,9 +85,9 @@ async function generarRespuesta(input) {
     }
 
     const data = await response.json();
-    return data; // Devolver los datos de la API
+    return data;
   } catch (error) {
     console.error("Hubo un error en la solicitud:", error);
-    throw error; // Propagar el error para manejarlo donde se llame la función
+    throw error;
   }
 }
