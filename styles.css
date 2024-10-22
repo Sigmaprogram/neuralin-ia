@@ -26,6 +26,10 @@ body {
   max-height: 100vh;
   max-width: 100%;
 }
+i {
+  font-size: 24px;
+  color: #333;
+}
 .hiden {
   display: none;
 }
@@ -34,7 +38,7 @@ body {
   justify-content: space-between;
   align-items: center;
   max-width: 95%;
-  height: 60px;
+  height: 70px;
   padding: 0 40px;
   margin: auto;
 }
@@ -42,13 +46,27 @@ body {
   margin-left: 7px;
   font-size: 24px;
 }
+.iteractive-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 .btn-iniciar-sesion {
   padding: 10px 30px;
   border-radius: 30px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+  background-color: #dddddd55;
+  font-weight: 600;
+  border: 1px solid #ddda;
   cursor: pointer;
+  transition: all ease-in 100ms;
+}
+.btn-iniciar-sesion:hover {
+  background-color: #dddddddd;
+}
+.btn-mode {
+  border: none;
+  background-color: transparent;
 }
 .logo-section {
   display: flex;
