@@ -26,6 +26,21 @@ body {
   max-height: 100vh;
   max-width: 100%;
 }
+/* Imagenes dark mode */
+.dark-mode {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+}
+.input-dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+.logo-dark-mode {
+  filter: invert(1);
+}
+.image-response-dark-mode{
+  filter: invert(1);
+}
 i {
   font-size: 24px;
   color: #333;
@@ -57,7 +72,7 @@ i {
   border-radius: 30px;
   background-color: #dddddd55;
   font-weight: 600;
-  border: 1px solid #ddda;
+  border: none;
   cursor: pointer;
   transition: all ease-in 100ms;
 }
@@ -81,7 +96,7 @@ i {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  height: 90vh;
+  height: 87vh;
   margin: auto;
 }
 @media screen and (max-width: 1020px) {
@@ -91,7 +106,7 @@ i {
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  padding: 20px;
+  padding: 10px 30px;
   overflow-y: auto;
   scrollbar-width: none;
 }
@@ -126,15 +141,15 @@ i {
   padding: 15px 20px;
   border-radius: 50px;
   border: none;
-  box-shadow: 5px 5px 15px #d9dce2, -5px -5px 15px #ffffff;
+  
   font-size: 16px;
 }
 input:focus {
   outline: 1px solid #dadadaaa;
 }
-.input-container .send-button {
+.send-button {
   margin-left: -50px;
-  background-color: #fff;
+  background-color: #dddddd55;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -142,16 +157,37 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 5px 5px 15px #d9dce2, -5px -5px 15px #ffffff;
+}
+.send-button:hover {
+  background-color: #dddddddd;
 }
 .sidebar {
   position: absolute;
   left: 20px;
-  top: 32%;
+  top: 30%;
   position: fixed;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+@media screen and (max-width: 500px) {
+  .sidebar {
+    display: none;
+  }
+  .btn-iniciar-sesion {
+    display: none;
+  }
+  .container-chatbox {
+    padding: 0px;
+    width: 90%;
+  }
+  .section-response {
+    padding: 10px;
+  }
+  .input-container {
+    padding: 0px;
+    width: 100%;
+  }
 }
 .sidebar i {
   font-size: 24px;

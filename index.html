@@ -28,6 +28,9 @@
       rel="stylesheet"
     />
 
+    <!-- Formato data -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <!-- Título -->
     <title>Neuralin IA</title>
   </head>
@@ -35,12 +38,12 @@
   <body class="body">
     <nav class="nav-bar">
       <section class="logo-section">
-        <img src="assets/icons/cerebro.png" alt="" />
+        <img class="logo" src="assets/icons/cerebro.png" alt="" />
         <h1 class="title">Neuralin</h1>
       </section>
       <section class="iteractive-section">
         <button class="btn-iniciar-sesion">Sign in</button>
-        <button class="btn-mode"><i class="fas fa-sun"></i></button>
+        <button class="btn-mode"><i class="fas fa-moon"></i></button>
       </section>
     </nav>
     <section class="sidebar">
@@ -60,7 +63,9 @@
     <section class="container-chatbox">
       <!-- Seccion de respuestas de IA -->
       <section class="section-response" id="section-response">
-        <h3 class="chatbox-title">ASK Neuralin</h3>
+        <div class="container-clear-chatbox">
+<!-- <h3 class="chatbox-title">ASK Neuralin</h3> -->
+        </div>
         <!-- <div class="ask">
           <section class="section-title-ask">
             <div class="circle-image-ask">
@@ -103,5 +108,7 @@
     </div>
     <!-- Fin del contenedor del ChatBox -->
     <script src="index.js"></script>
+   
+
   </body>
 </html>
