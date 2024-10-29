@@ -19,8 +19,8 @@ btnMode.addEventListener("click", () => {
   logo.classList.toggle("logo-dark-mode");
 
   // Toggle icon
-  btnMode.innerHTML = body.classList.contains("dark-mode") 
-    ? `<i class="fas fa-sun"></i>` 
+  btnMode.innerHTML = body.classList.contains("dark-mode")
+    ? `<i class="fas fa-sun"></i>`
     : `<i class="fas fa-moon"></i>`;
 });
 
@@ -49,12 +49,16 @@ async function enviarRespuesta() {
         </section>
         <p class="text-ask">${input}</p>
       </div>`;
-    
+
+    // Scroll to bottom al enviar la pregunta
+    scrollBottom();
     try {
       const respuesta = await generarRespuesta(input);
 
       // Format response using `marked` for Markdown
-      const formattedText = marked.parse(respuesta.candidates[0].content.parts[0].text);
+      const formattedText = marked.parse(
+        respuesta.candidates[0].content.parts[0].text
+      );
 
       responseContainer.innerHTML += `
         <div class="response">
@@ -69,7 +73,6 @@ async function enviarRespuesta() {
 
       // Scroll to bottom
       scrollBottom();
-
     } catch (error) {
       console.error("Error al generar respuesta:", error);
     }
@@ -104,6 +107,7 @@ async function generarRespuesta(input) {
     }
 
     const data = await response.json();
+    console.log("Respuesta:", data);
     return data;
   } catch (error) {
     console.error("Hubo un error en la solicitud:", error);
@@ -115,6 +119,15 @@ function scrollBottom() {
   // Scroll to bottom with smooth animation
   responseContainer.scrollTo({
     top: responseContainer.scrollHeight,
-    behavior: 'smooth' // This adds a smooth scroll behavior
+    behavior: "smooth", // This adds a smooth scroll behavior
   });
+}
+
+// Resize del input
+const textarea = document.getElementById("input-user");
+textarea.addEventListener("input", autoResize);
+
+function autoResize() {
+  this.style.height = "auto"; // Reinicia el tamaño para evitar acumulación
+  this.style.height = this.scrollHeight + "px"; // Ajusta el tamaño al contenido
 }
